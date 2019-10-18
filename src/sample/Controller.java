@@ -22,6 +22,7 @@ public class Controller {
     @FXML
     TextField res;
 
+
     @FXML
     public void routeHandler(ActionEvent e){
         System.out.println("find route");
@@ -66,5 +67,15 @@ class TrainModel{ //shouldnt know anything about the GUI world
     }
 
 }
+
+    @FXML
+    ComboBox stat3; //not working
+
+    //create a constructor for the controller
+    Controller(){
+        for(String s: TrainModel.getInstance().getStations()){ //this will give the model its objects
+            //stat3.getItems().add(s); //returns list with all the stations in it?
+        }
+    }
 
      */
