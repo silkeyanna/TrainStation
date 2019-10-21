@@ -10,7 +10,7 @@ public class connection {
     public static void main(String[] args) {
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db";
+            String url = "jdbc:sqlite:C:/Users/silke/TrainSchedule.db";
             conn = DriverManager.getConnection(url);
 
             System.out.println("Got it!");
