@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 
 
@@ -27,10 +28,17 @@ public class Controller {
     public void initialize(){
         // initialize is called by javafx after the fxml file is read and gui objects are created
         // this cannot be done in the constructor because that happens before FXML loading
+<<<<<<< Updated upstream
         for(String s: TrainModel.getInstance().getStations()){
             stat1.getItems().add(s);
             stat2.getItems().add(s);
 
+=======
+
+        for(int i=0;i<trainStations.length;i++){
+            stat1.getItems().add(trainStations[i]);
+            stat2.getItems().add(trainStations[i]);
+>>>>>>> Stashed changes
         }
     }
 
