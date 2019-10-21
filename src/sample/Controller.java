@@ -18,10 +18,22 @@ public class Controller {
     @FXML
     TextField stat2;
     @FXML
+    ComboBox stat3;
+
+    @FXML
     TextField time;
     @FXML
     TextField res;
 
+
+    @FXML
+    public void initialize(){
+        // initialize is called by javafx after the fxml file is read and gui objects are created
+        // this cannot be done in the constructor because that happens before FXML loading
+        for(String s: TrainModel.getInstance().getStations()){
+            stat3.getItems().add(s);
+        }
+    }
 
     @FXML
     public void routeHandler(ActionEvent e){
