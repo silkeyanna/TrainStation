@@ -39,7 +39,9 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
 
     String[] getStations() {String[] s = {"Kobenhavn", "Roskilde", "Odense"}; return s;}
-    String findRoute(String stat1, String stat2, String time){return "route from" + stat1+ "\n to " + stat2 + " at "+ time;}
+    String findRoute(String stat1, String stat2, String time){
+        return "route from" + stat1+ "\n to " + stat2 + " at "+ time;
+    }
 }
 
     /*
