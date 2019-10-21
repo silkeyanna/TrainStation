@@ -20,7 +20,6 @@ public class connection {
             conn = DriverManager.getConnection(url);
 
             System.out.println("Got it!");
-
         } catch (SQLException e) {
             throw new Error("Problem", e);
         } finally {
