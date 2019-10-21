@@ -9,6 +9,7 @@ import java.sql.Statement;
 // SILKE: import JDBC library: C:\Users\silke\Dropbox\RUC\Software Development\JDBC jar
 
 public class connection {
+
     public static void main(String[] args) {
         Connection conn = null;
         try {
