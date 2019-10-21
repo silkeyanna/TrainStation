@@ -19,7 +19,6 @@ public class Controller {
     TextField stat2;
     @FXML
     ComboBox stat3;
-
     @FXML
     TextField time;
     @FXML

@@ -6,15 +6,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <Button mnemonicParsing="false" onAction="#routeHandler" text="Find Route" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
-      <Label text="From" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
-      <Label text="To" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-      <Label layoutX="20.0" layoutY="70.0" text="Time" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
-      <TextField fx:id="stat2" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
-      <TextField fx:id="res" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-      <TextField fx:id="time" layoutX="110.0" layoutY="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
-      <ComboBox fx:id="stat3" layoutX="100.0" layoutY="20.0" prefWidth="150.0" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Button mnemonicParsing="false" onAction="#routeHandler" text="Find Route" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+        <Label text="From" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
+        <Label text="To" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
+        <Label layoutX="20.0" layoutY="70.0" text="Time" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
+        <ComboBox fx:id="stat3" layoutX="100.0" layoutY="20.0" onAction="#initialize" prefHeight="27.0" prefWidth="190.0" promptText="Choose Trainstation" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+        <TextField fx:id="stat2" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
+        <TextField fx:id="res" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+        <TextField fx:id="time" layoutX="110.0" layoutY="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
+    </children>
 </AnchorPane>
