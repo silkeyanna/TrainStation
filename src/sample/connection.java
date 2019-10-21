@@ -10,20 +10,26 @@ import java.sql.Statement;
 
 public class connection {
 
-<<<<<<< HEAD
-    public static void main(String[] args) {
-=======
-    public ResultSet getRoute(int start, int end, float time,Connection conn)
+    public static String[] getRoute()
             throws SQLException {
-        String query = "select
+        String[] result = new String[7];
+        String query = "select City From TrainStation";
         Statement stmt = null;
         ResultSet res = null;
+        Connection conn = connect();
         stmt = conn.createStatement();
         res = stmt.executeQuery(query);
-        return res;
+        int i = 0;
+
+        while (res.next()) {
+            result[i] = res.getString(1);
+            i++;
+        }
+        System.out.println(result);
+        return result;
     }
-    public Connection connect(){
->>>>>>> fb430a13677e83546131baf30a7b90b4cad3f3f1
+
+    public static Connection connect(){
         Connection conn = null;
         try {
             //SILKE --> "jdbc:sqlite:C:/Users/silke/TrainSchedule.db"
@@ -36,16 +42,15 @@ public class connection {
             return conn;
         } catch (SQLException e) {
             throw new Error("Problem", e);
+
         } finally {
             try {
-                if (conn != null) {
+                if (conn == null) {
                     conn.close();
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
         }
-
     }
-
 }
