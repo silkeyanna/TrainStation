@@ -14,9 +14,9 @@ public class Controller {
 
     TrainModel m= TrainModel.getInstance(); //make a model object when you create the controller
     @FXML
-    TextField stat1;
+    ComboBox stat1;
     @FXML
-    TextField stat2;
+    ComboBox stat2;
     @FXML
     TextField time;
     @FXML
@@ -24,9 +24,20 @@ public class Controller {
 
 
     @FXML
+    public void initialize(){
+        // initialize is called by javafx after the fxml file is read and gui objects are created
+        // this cannot be done in the constructor because that happens before FXML loading
+        for(String s: TrainModel.getInstance().getStations()){
+            stat1.getItems().add(s);
+            stat2.getItems().add(s);
+
+        }
+    }
+
+    @FXML
     public void routeHandler(ActionEvent e){
         System.out.println("find route");
-        res.setText(m.findRoute(stat1.getText(),stat2.getText(),time.getText()));
+        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time.getText()));
     }
 }
 
