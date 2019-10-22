@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
@@ -26,6 +27,8 @@ public class Controller {
     TextField time;
     @FXML
     TextField res;
+    @FXML
+    Spinner time1;
 
     public Controller() throws SQLException {
     }
@@ -40,11 +43,12 @@ public class Controller {
             stat1.getItems().add(trainStations[i]);
             stat2.getItems().add(trainStations[i]);
 
+
         }
     }
 
     @FXML
-    public void routeHandler(ActionEvent e){
+    public void routeHandler(ActionEvent e) throws SQLException {
         System.out.println("find route");
         res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time.getText()));
     }
@@ -59,7 +63,11 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
 
     String[] getStations() {String[] s = {"Kobenhavn", "Roskilde", "Odense"}; return s;}
-    String findRoute(String stat1, String stat2, String time){
+    String findRoute(String stat1, String stat2, String time) throws SQLException {
+
+        String[] result=connection.CalculateRoute(1,stat2,time);
+
+
         return "route from" + stat1+ "\n to " + stat2 + " at "+ time;
     }
 }

@@ -3,10 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <Button mnemonicParsing="false" onAction="#routeHandler" text="Find Route" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
         <Label text="From" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
@@ -16,5 +17,6 @@
         <TextField fx:id="res" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
         <TextField fx:id="time" layoutX="110.0" layoutY="70.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
       <ComboBox fx:id="stat2" layoutX="110.0" layoutY="30.0" onAction="#initialize" prefHeight="27.0" prefWidth="190.0" promptText="Choose Trainstation" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
+      <Spinner fx:id="time1" editable="true" layoutX="51.0" layoutY="138.0" />
     </children>
 </AnchorPane>
