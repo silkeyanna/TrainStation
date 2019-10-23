@@ -63,12 +63,12 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
 
     String[] getStations() {String[] s = {"Kobenhavn", "Roskilde", "Odense"}; return s;}
-    String findRoute(String stat1, String stat2, String time) throws SQLException {
+    String findRoute(String stat1,String stat2, String time) throws SQLException {
 
-        String[] result=connection.CalculateRoute(1,stat2,time);
+        String[] result=connection.CalculateRoute(stat1,stat2,time);
 
 
-        return "route from" + stat1+ "\n to " + stat2 + " at "+ time;
+        return  "First train from " + stat1+ "\n to " + stat2 + " at "+ result[0];
     }
 }
 

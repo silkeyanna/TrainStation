@@ -28,17 +28,20 @@ public static String getStation(String Station) throws SQLException {
         result[i] = res.getString(1);
         i++;
     }
-    return result[1];
+
+    return result[0];
 }
 
 
-    public static String[] CalculateRoute(double time, String DepartureStation, String endStation) throws  SQLException{
+    public static String[] CalculateRoute(String DepartureStation, String endStation, String time) throws  SQLException{
 
         String[] result = new String[106];
 
 
+
         DepartureStation=getStation(DepartureStation);
         endStation=getStation(endStation);
+
 
       String query="SELECT *\n" +
               "FROM Departure AS start\n" +
@@ -49,6 +52,7 @@ public static String getStation(String Station) throws SQLException {
               "start.StationID = "+DepartureStation+" AND\n" +
               "finish.StationID = "+endStation+"\n" +
               "ORDER BY Time";
+
          Statement stmt = null;
         ResultSet res = null;
         Connection conn = connect();
