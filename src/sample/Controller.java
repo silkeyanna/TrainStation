@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 
 public class Controller {
-
+    boolean done=false;
     TrainModel m = TrainModel.getInstance(); //make a model object when you create the controller
     private connection MyConnection = new connection();
     String[] trainStations = connection.getRoute();
@@ -22,7 +22,7 @@ public class Controller {
     @FXML
     ComboBox stat2;
     @FXML
-    TextField res;
+    TextArea res1;
     @FXML
     Spinner<Double> hour;
     @FXML
@@ -37,10 +37,13 @@ public class Controller {
         // initialize is called by javafx after the fxml file is read and gui objects are created
             // this cannot be done in the constructor because that happens before FXML loading
 
-        for(int i=0;i<trainStations.length;i++){
-            stat1.getItems().add(trainStations[i]);
-            stat2.getItems().add(trainStations[i]);
+       // for(int i=0;i<trainStations.length;i++){
+        if(done==false) {
+            stat1.getItems().setAll(trainStations);
+            stat2.getItems().setAll(trainStations);
+            done=true;
         }
+       // }
         //configures the Spinner with values 0-24
         SpinnerValueFactory<Double> svf = new SpinnerValueFactory.DoubleSpinnerValueFactory(00.00, 24.00);
         hour.setValueFactory(svf);
@@ -50,9 +53,9 @@ public class Controller {
 
     @FXML
     public void routeHandler(ActionEvent e) throws SQLException {
-        System.out.println("find route");
-        double time = hour.getValue() + minutes.getValue();
-        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),String.valueOf(time)));
+
+        double time = hour.getValue() + minutes.getValue()/100;
+        res1.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),String.valueOf(time)));
     }
 }
 
@@ -66,9 +69,22 @@ class TrainModel{ //shouldnt know anything about the GUI world
     String findRoute(String stat1,String stat2, String time) throws SQLException {
 
         String[] result=connection.CalculateRoute(stat1,stat2,time);
+        String res="";
+        if (result[0]==null) {
+            if(stat1.equals(stat2)){
+                res="Please, insert a valid route";
+            }else {
+                res = "There is no trains at this hour today";
+            }
 
+        }
+        for (int i=0;i<result.length;i++){
+            if(result[i]!=null) {
+                res = res + "\n" + (i+1) + ": train from " + stat1 + " to " + stat2 + " at " + result[i];
+            }
+        }
+        return res;
 
-        return  "First train from " + stat1+ "\n to " + stat2 + " at "+ result[0];
     }
 }
 

@@ -62,7 +62,7 @@ public static String getStation(String Station) throws SQLException {
         int i = 0;
         while (res.next()) {
             result[i] = res.getString(1);
-            System.out.println(result[i]);
+
             i++;
         }
 
@@ -93,10 +93,10 @@ public static String getStation(String Station) throws SQLException {
             //SILKE --> "jdbc:sqlite:C:/Users/silke/TrainSchedule.db"
             //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db"
 
-            String url = "jdbc:sqlite:C:/Users/silke/desktop/trains.db";
+            String url = "jdbc:sqlite:C:/Users/juanb/desktop/Trains2.db";
             conn = DriverManager.getConnection(url);
 
-            System.out.println("Got it!");
+
             return conn;
         } catch (SQLException e) {
             throw new Error("Problem", e);
