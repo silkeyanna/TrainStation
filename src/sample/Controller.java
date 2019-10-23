@@ -45,7 +45,12 @@ public class Controller {
     @FXML
     public void routeHandler(ActionEvent e){
         System.out.println("find route");
+<<<<<<< Updated upstream
         res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time.getText()));
+=======
+        String time = hour.getValue() + "." + minutes.getValue();
+        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time));
+>>>>>>> Stashed changes
     }
 }
 
