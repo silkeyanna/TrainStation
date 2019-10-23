@@ -15,37 +15,54 @@ public class connection {
      //  getRoute(conn);
    // }
 
+public static String getStation(String Station) throws SQLException {
+    String[] result = new String[7];
+    String query="select StationID from TrainStation where City ="+"\""+Station+"\"";
+    Statement stmt = null;
+    ResultSet res = null;
+    Connection conn = connect();
+    stmt = conn.createStatement();
+    res = stmt.executeQuery(query);
+    int i=0;
+    while (res.next()) {
+        result[i] = res.getString(1);
+        i++;
+    }
+    return result[1];
+}
+
 
     public static String[] CalculateRoute(double time, String DepartureStation, String endStation) throws  SQLException{
-        String[] result = new String[7];
-        String[] trains = new String[106];
-        String query="select StationID from TrainStation where City ="+"\""+DepartureStation+"\"";
-        Statement stmt = null;
+
+        String[] result = new String[106];
+
+
+        DepartureStation=getStation(DepartureStation);
+        endStation=getStation(endStation);
+
+      String query="SELECT *\n" +
+              "FROM Departure AS start\n" +
+              "JOIN\n" +
+              "Departure AS finish ON start.TrainID = finish.TrainID\n" +
+              "WHERE start.Time >= "+time+" AND\n" +
+              "start.Time < finish.Time AND\n" +
+              "start.StationID = "+DepartureStation+" AND\n" +
+              "finish.StationID = "+endStation+"\n" +
+              "ORDER BY Time";
+         Statement stmt = null;
         ResultSet res = null;
         Connection conn = connect();
         stmt = conn.createStatement();
         res = stmt.executeQuery(query);
 
         int i = 0;
-
         while (res.next()) {
             result[i] = res.getString(1);
-            i++;
-        }
-      query="select TrainID from Departure where StationID ="+"\""+result[0]+"\" and Time >"+time;
-         stmt = null;
-        res = null;
-        conn = connect();
-        stmt = conn.createStatement();
-        res = stmt.executeQuery(query);
-
-        i = 0;
-
-        while (res.next()) {
-            trains[i] = res.getString(1);
+            System.out.println(result[i]);
             i++;
         }
 
+       return result;
     }
     public static String[] getRoute()
             throws SQLException {
@@ -62,7 +79,7 @@ public class connection {
             result[i] = res.getString(1);
             i++;
         }
-        System.out.println(result);
+
         return result;
     }
 
