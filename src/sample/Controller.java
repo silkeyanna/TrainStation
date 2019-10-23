@@ -5,30 +5,28 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.sql.SQLException;
 
 
 public class Controller {
 
+    TrainModel m = TrainModel.getInstance(); //make a model object when you create the controller
     private connection MyConnection = new connection();
     String[] trainStations = connection.getRoute();
 
-    TrainModel m= TrainModel.getInstance(); //make a model object when you create the controller
-    @FXML
+
+    @FXML //loads fxml file which generates objects for objects that appear in window and assign objects here as well
     ComboBox stat1;
     @FXML
     ComboBox stat2;
     @FXML
-    TextField time;
-    @FXML
     TextField res;
     @FXML
-    Spinner time1;
+    Spinner<Double> hour;
+    @FXML
+    Spinner<Double> minutes;
 
     public Controller() throws SQLException {
     }
@@ -37,20 +35,24 @@ public class Controller {
     @FXML
     public void initialize(){
         // initialize is called by javafx after the fxml file is read and gui objects are created
-        // this cannot be done in the constructor because that happens before FXML loading
+            // this cannot be done in the constructor because that happens before FXML loading
 
         for(int i=0;i<trainStations.length;i++){
             stat1.getItems().add(trainStations[i]);
             stat2.getItems().add(trainStations[i]);
-
-
         }
+        //configures the Spinner with values 0-24
+        SpinnerValueFactory<Double> svf = new SpinnerValueFactory.DoubleSpinnerValueFactory(00.00, 24.00);
+        hour.setValueFactory(svf);
+        SpinnerValueFactory<Double> svf2 = new SpinnerValueFactory.DoubleSpinnerValueFactory(00.00, 59.00);
+        minutes.setValueFactory(svf2);
     }
 
     @FXML
     public void routeHandler(ActionEvent e) throws SQLException {
         System.out.println("find route");
-        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time.getText()));
+        double time = hour.getValue() + minutes.getValue();
+        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),String.valueOf(time)));
     }
 }
 
@@ -61,8 +63,6 @@ class TrainModel{ //shouldnt know anything about the GUI world
     static TrainModel inst;
     static TrainModel getInstance(){if (inst==null) inst=new TrainModel(); return inst;} //only one object of trainmodel class will be created this way
 
-
-    String[] getStations() {String[] s = {"Kobenhavn", "Roskilde", "Odense"}; return s;}
     String findRoute(String stat1,String stat2, String time) throws SQLException {
 
         String[] result=connection.CalculateRoute(stat1,stat2,time);
@@ -108,4 +108,9 @@ class TrainModel{ //shouldnt know anything about the GUI world
         }
     }
 
+
+    @FXML
+    public void routeHandleer (ActionEvent e) {
+    res.setText(m.findRoute(stat1.getText(),stat2.getText(), time.getText()));
+    }
      */

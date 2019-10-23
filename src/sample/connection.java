@@ -93,7 +93,7 @@ public static String getStation(String Station) throws SQLException {
             //SILKE --> "jdbc:sqlite:C:/Users/silke/TrainSchedule.db"
             //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db"
 
-            String url = "jdbc:sqlite:C:/Users/juanb/desktop/Trains2.db";
+            String url = "jdbc:sqlite:C:/Users/silke/desktop/trains.db";
             conn = DriverManager.getConnection(url);
 
             System.out.println("Got it!");
