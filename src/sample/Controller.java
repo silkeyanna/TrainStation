@@ -64,9 +64,9 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
     String findRoute(String stat1,String stat2, String time) throws SQLException {
 
-        String[] result=connection.CalculateRoute(stat1,stat2,time);
-        String res="";
-        if (result[0]==null) {
+        String[] result=connection.CalculateRoute(stat1,stat2,time); //we call the method  to calculate the best routes in the class connection
+        String res=""; //It return us an array
+        if (result[0]==null) { //If the first element is null, it could be there is not a valid route or there is no trains at that hour
             if(stat1.equals(stat2)){
                 res="Please, insert a valid route";
             }else {
@@ -75,7 +75,7 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
         }
         for (int i=0;i<result.length;i++){
-            if(result[i]!=null) {
+            if(result[i]!=null) { //Then we show al the possibilities with a loop in the array
                 res = res + "\n" + (i+1) + ": train from " + stat1 + " to " + stat2 + " at " + result[i];
             }
         }
@@ -109,3 +109,4 @@ class TrainModel{ //shouldnt know anything about the GUI world
     }
 
 }
+*/

@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 public class connection {
 
-public static String getStation(String Station) throws SQLException {
+public static String getStation(String Station) throws SQLException { //This method is for selecting all the StationsId of the stations
     String[] result = new String[7];
     String query="select StationID from TrainStation where City ="+"\""+Station+"\"";
     Statement stmt = null;
@@ -29,7 +29,7 @@ public static String getStation(String Station) throws SQLException {
 
 
     public static String[] CalculateRoute(String DepartureStation, String endStation, String time) throws  SQLException{
-
+//This method is from calculating all the possibles routes from a station to another in a time, it returns a array with the times
         String[] result = new String[106];
 
 
@@ -63,7 +63,7 @@ public static String getStation(String Station) throws SQLException {
 
        return result;
     }
-    public static String[] getRoute()
+    public static String[] getRoute() //This method is for getting all the names of the citys with the stationid
             throws SQLException {
         String[] result = new String[7];
         String query = "select City From TrainStation";
@@ -82,13 +82,13 @@ public static String getStation(String Station) throws SQLException {
         return result;
     }
 
-    public static Connection connect(){
+    public static Connection connect(){ //This method is for connecting to the database
         Connection conn = null;
         try {
             //SILKE --> "jdbc:sqlite:C:/Users/silke/trains.db"
             //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db"
 
-            String url = "jdbc:sqlite:C:/Users/silke/desktop/trains.db";
+            String url = "jdbc:sqlite:C:/Users/juanb/desktop/Trains2.db";
             conn = DriverManager.getConnection(url);
 
 
