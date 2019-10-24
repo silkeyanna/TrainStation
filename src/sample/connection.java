@@ -10,11 +10,6 @@ import java.sql.Statement;
 
 public class connection {
 
-  //  public static void main(String[] args) throws SQLException {
-    //   Connection conn = connect();
-     //  getRoute(conn);
-   // }
-
 public static String getStation(String Station) throws SQLException {
     String[] result = new String[7];
     String query="select StationID from TrainStation where City ="+"\""+Station+"\"";
