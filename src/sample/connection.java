@@ -90,10 +90,10 @@ public static String getStation(String Station) throws SQLException {
     public static Connection connect(){
         Connection conn = null;
         try {
-            //SILKE --> "jdbc:sqlite:C:/Users/silke/TrainSchedule.db"
+            //SILKE --> "jdbc:sqlite:C:/Users/silke/trains.db"
             //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db"
 
-            String url = "jdbc:sqlite:C:/Users/juanb/desktop/Trains2.db";
+            String url = "jdbc:sqlite:C:/Users/silke/desktop/trains.db";
             conn = DriverManager.getConnection(url);
 
 
