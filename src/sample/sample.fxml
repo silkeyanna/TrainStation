@@ -4,18 +4,11 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Spinner?>
-<<<<<<< HEAD
 <?import javafx.scene.control.TextField?>
-=======
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
->>>>>>> monday
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
-<<<<<<< HEAD
         <Button mnemonicParsing="false" onAction="#routeHandler" text="Find Route" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
         <Label text="From" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" />
         <Label text="To" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
@@ -25,23 +18,5 @@
       <ComboBox fx:id="stat2" layoutX="110.0" layoutY="30.0" onAction="#initialize" prefHeight="27.0" prefWidth="190.0" promptText="Choose Trainstation" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" />
       <TextField fx:id="time" layoutX="20.0" layoutY="216.0" />
       <Spinner layoutX="100.0" layoutY="94.0" prefHeight="39.0" prefWidth="190.0" />
-=======
-        <Button layoutX="100.0" layoutY="200.0" mnemonicParsing="false" onAction="#routeHandler" prefHeight="50.0" prefWidth="200.0" text="Find Route" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="200.0">
-        </Button>
-        <Label layoutX="10.0" layoutY="72.0" text="From" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="72.0" />
-        <Label layoutX="10.0" layoutY="112.0" text="To" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="112.0" />
-        <Label layoutX="10.0" layoutY="152.0" text="Time" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="152.0" />
-        <ComboBox fx:id="stat1" layoutX="100.0" layoutY="72.0" onAction="#initialize" prefHeight="27.0" prefWidth="190.0" promptText="Choose Departure Station" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="72.0" />
-      <ComboBox fx:id="stat2" layoutX="100.0" layoutY="112.0" onAction="#initialize" prefHeight="27.0" prefWidth="190.0" promptText="Choose Destination" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="112.0" />
-      <Spinner id="Hour" fx:id="hour" layoutX="100.0" layoutY="152.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="152.0" />
-      <Spinner fx:id="minutes" layoutX="210.0" layoutY="152.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="152.0" />
-        <TextArea fx:id="res1" layoutX="30.0" layoutY="268.0" prefHeight="183.0" prefWidth="407.0" />
-      <ImageView fitHeight="50.0" fitWidth="407.0" layoutX="449.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
-          <image>
-              <Image url="images/trainlogo.jpg" />
-          </image>
-      </ImageView>
-
->>>>>>> monday
     </children>
 </AnchorPane>
