@@ -28,29 +28,20 @@ public class Controller {
     public void initialize(){
         // initialize is called by javafx after the fxml file is read and gui objects are created
         // this cannot be done in the constructor because that happens before FXML loading
-<<<<<<< Updated upstream
-        for(String s: TrainModel.getInstance().getStations()){
-            stat1.getItems().add(s);
-            stat2.getItems().add(s);
 
-=======
 
         for(int i=0;i<trainStations.length;i++){
             stat1.getItems().add(trainStations[i]);
             stat2.getItems().add(trainStations[i]);
->>>>>>> Stashed changes
+
         }
     }
 
     @FXML
     public void routeHandler(ActionEvent e){
         System.out.println("find route");
-<<<<<<< Updated upstream
-        res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time.getText()));
-=======
         String time = hour.getValue() + "." + minutes.getValue();
         res.setText(m.findRoute(String.valueOf(stat1.getSelectionModel().getSelectedItem()),String.valueOf(stat2.getSelectionModel().getSelectedItem()),time));
->>>>>>> Stashed changes
     }
 }
 
