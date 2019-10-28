@@ -86,9 +86,9 @@ public class connection {
         Connection conn = null;
         try {
             //SILKE --> "jdbc:sqlite:C:/Users/silke/trains.db"
-            //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/Trains2.db"
+            //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/trains.db"
 
-            String url = "jdbc:sqlite:C:/Users/silke/desktop/trains2.db";
+            String url = "jdbc:sqlite:C:/Users/silke/Desktop/trains.db";
             conn = DriverManager.getConnection(url);
 
 
