@@ -9,11 +9,10 @@ public class Controller {
 
     boolean done=false;
     TrainModel m = TrainModel.getInstance(); //make a model object when you create the controller
-    private connection MyConnection = new connection();
     String[] trainStations = connection.getRoute();
 
     @FXML //loads fxml file which generates objects for objects that appear in window and assign objects here as well
-            ComboBox stat1;
+    ComboBox stat1;
     @FXML
     ComboBox stat2;
     @FXML
@@ -41,10 +40,10 @@ public class Controller {
         }
         // }
         //configures the hour Spinner with values 0-24
-        SpinnerValueFactory<Double> svf = new SpinnerValueFactory.DoubleSpinnerValueFactory(00.00, 24.00);
+        SpinnerValueFactory<Double> svf = new SpinnerValueFactory.DoubleSpinnerValueFactory(00, 24);
         hour.setValueFactory(svf);
         //configures the Spinner with values 0-59
-        SpinnerValueFactory<Double> svf2 = new SpinnerValueFactory.DoubleSpinnerValueFactory(00.00, 59.00);
+        SpinnerValueFactory<Double> svf2 = new SpinnerValueFactory.DoubleSpinnerValueFactory(00, 59);
         minutes.setValueFactory(svf2);
     }
 
@@ -68,9 +67,9 @@ class TrainModel{ //shouldnt know anything about the GUI world
         String res=""; //It return us an array
         if (result[0]==null) { //If the first element is null, it could be there is not a valid route or there is no trains at that hour
             if(stat1.equals(stat2)){
-                res="Please, insert a valid route";
+                res= "Please insert a valid route";
             }else {
-                res = "There is no trains at this hour today";
+                res = "There are no trains after this time today";
             }
 
         }
@@ -83,30 +82,3 @@ class TrainModel{ //shouldnt know anything about the GUI world
 
     }
 }
-
-    /*
-    @FXML
-    Button btn;
-
-    @FXML
-    TextField password;
-
-    @FXML
-    TextField txt;
-
-
-    public void initialize() { //executed when GUI is ready
-        btn.addEventHandler(ActionEvent.ACTION, new EventHandler<Event>() { //Ctrl Space Enter
-            @Override
-            public void handle(Event event) {
-                if (password.getText().equals("admin")) { //equals because they are objects and objects can be complex to compare
-                    txt.setVisible(true);
-                }
-
-            }
-        });
-
-    }
-
-}
-*/

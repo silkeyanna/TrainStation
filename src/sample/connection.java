@@ -6,9 +6,21 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-// SILKE: import JDBC library: C:\Users\silke\Dropbox\RUC\Software Development\JDBC jar
-
 public class connection {
+
+    //static member holds only one instance of connection class
+    private static connection connectionInstance;
+    //prevents any other class from instantiating
+    private connection(){}
+
+    //provides global point of access
+    public static connection getConnectionInstance(){
+        if(connectionInstance == null){
+            connectionInstance = new connection();
+            System.out.println("Creating new connection instance");
+        }
+        return connectionInstance;
+    }
 
     public static String getStation(String Station) throws SQLException { //This method is for selecting all the StationsId of the stations
         String[] result = new String[7];
@@ -85,13 +97,8 @@ public class connection {
     public static Connection connect(){ //This method is for connecting to the database
         Connection conn = null;
         try {
-            //SILKE --> "jdbc:sqlite:C:/Users/silke/trains.db"
-            //JUAN --> "jdbc:sqlite:C:/Users/ juanb/desktop/trains.db"
-
-            String url = "jdbc:sqlite:C:/Users/silke/Desktop/trains.db";
+            String url = "jdbc:sqlite:TrainSchedule.db";
             conn = DriverManager.getConnection(url);
-
-
             return conn;
         } catch (SQLException e) {
             throw new Error("Problem", e);
