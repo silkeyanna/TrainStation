@@ -97,12 +97,11 @@ public class connection {
     public static Connection connect(){ //This method is for connecting to the database
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:TrainSchedule.db";
+            String url = "jdbc:sqlite:TrainSchedule.db"; //relative path
             conn = DriverManager.getConnection(url);
             return conn;
         } catch (SQLException e) {
             throw new Error("Problem", e);
-
         } finally {
             try {
                 if (conn == null) {
