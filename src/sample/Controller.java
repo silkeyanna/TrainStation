@@ -6,10 +6,11 @@ import javafx.scene.control.*;
 import java.sql.SQLException;
 
 public class Controller {
-
+    connection conn = connection.getConnectionInstance();
     boolean done=false;
     TrainModel m = TrainModel.getInstance(); //make a model object when you create the controller
-    String[] trainStations = connection.getRoute();
+    String[] trainStations = conn.getRoute();
+
 
     @FXML //loads fxml file which generates objects for objects that appear in window and assign objects here as well
     ComboBox stat1;
@@ -58,12 +59,13 @@ class TrainModel{ //shouldnt know anything about the GUI world
     private TrainModel(){ //private because it should be a singleton!
     } //no body because it is a constructor
 
+    connection conn = connection.getConnectionInstance();
     static TrainModel inst;
     static TrainModel getInstance(){if (inst==null) inst=new TrainModel(); return inst;} //only one object of trainmodel class will be created this way
 
     String findRoute(String stat1,String stat2, String time) throws SQLException {
 
-        String[] result=connection.CalculateRoute(stat1,stat2,time); //we call the method  to calculate the best routes in the class connection
+        String[] result=conn.CalculateRoute(stat1,stat2,time); //we call the method  to calculate the best routes in the class connection
         String res=""; //It return us an array
         if (result[0]==null) { //If the first element is null, it could be there is not a valid route or there is no trains at that hour
             if(stat1.equals(stat2)){

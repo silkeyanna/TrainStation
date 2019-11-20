@@ -41,11 +41,8 @@ public class connection {
 
 
     public static String[] CalculateRoute(String DepartureStation, String endStation, String time) throws  SQLException{
-//This method is from calculating all the possibles routes from a station to another in a time, it returns a array with the times
+    //This method is from calculating all the possibles routes from a station to another in a time, it returns a array with the times
         String[] result = new String[106];
-
-
-
         DepartureStation=getStation(DepartureStation);
         endStation=getStation(endStation);
 
